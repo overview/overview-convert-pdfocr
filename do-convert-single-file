@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+#set -x
+
+LANG="$(echo "$1" | jq -r .languageCode)"
+
+# Write 0.json
+echo "$1" | jq '{ filename: .filename, languageCode: .languageCode, wantOcr: false, wantSplitByPage: .wantSplitByPage, contentType: "application/pdf", metadata: .metadata }' > 0.json
+
+# Write progress+error to stdout and write 0.blob
+# exec: so java receives signals once it's started
+exec java -jar /app/convert-pdfocr.jar "$LANG"
