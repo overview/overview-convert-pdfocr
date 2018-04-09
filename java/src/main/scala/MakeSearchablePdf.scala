@@ -48,7 +48,7 @@ object MakeSearchablePdf extends App {
     def failure(ex: Throwable): Unit = {
       ex.printStackTrace()
       System.out.print(ex.getMessage)
-      Runtime.getRuntime.halt(1)
+      ec.shutdown
     }
 
     PdfOcr.makeSearchablePdf(inPath, outPath, locales, onProgress).onComplete {
