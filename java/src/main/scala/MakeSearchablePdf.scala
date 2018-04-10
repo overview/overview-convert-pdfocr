@@ -41,13 +41,13 @@ object MakeSearchablePdf extends App {
     implicit val ec = CrashyExecutionContext()
 
     def success(message: String): Unit = {
-      System.out.print(message + "\n")
+      System.out.println(message)
       ec.shutdown
     }
 
     def failure(ex: Throwable): Unit = {
       ex.printStackTrace()
-      System.out.print(ex.getMessage)
+      System.out.println(ex.getMessage)
       ec.shutdown
     }
 
