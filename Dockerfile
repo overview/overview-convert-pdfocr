@@ -80,7 +80,7 @@ COPY java/ /app/java/
 RUN cd /app/java/ && java -jar ~/sbt/bin/sbt-launch.jar assembly
 
 
-FROM overview/overview-convert-framework:0.0.12 AS framework
+FROM overview/overview-convert-framework:0.0.15 AS framework
 # multi-stage build
 
 
