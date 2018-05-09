@@ -1,12 +1,12 @@
 name := "convert-pdfocr"
 
-version := "0.0.5"
+version := "0.0.6"
 
 organization := "com.overviewdocs"
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.12.6"
 
-libraryDependencies := Seq("org.overviewproject" %% "pdfocr" % "0.0.9")
+libraryDependencies := Seq("org.overviewproject" %% "pdfocr" % "0.0.10")
 
 scalacOptions += "-deprecation"
 
