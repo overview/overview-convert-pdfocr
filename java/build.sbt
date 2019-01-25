@@ -6,7 +6,7 @@ organization := "com.overviewdocs"
 
 scalaVersion := "2.12.8"
 
-libraryDependencies := Seq("org.overviewproject" %% "pdfocr" % "0.0.11")
+libraryDependencies := Seq("org.overviewproject" %% "pdfocr" % "0.0.12")
 
 scalacOptions += "-deprecation"
 
