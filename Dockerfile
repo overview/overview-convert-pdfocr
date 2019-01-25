@@ -1,6 +1,12 @@
-FROM openjdk:10.0.1-10-jre-slim AS os
+# buster-slim is the first version with Tesseract 4.0.
+# Alpine would be nice, but it doesn't have good-enough Java
+FROM debian:buster-slim AS os
+
+# the mkdir is for https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199#23
 RUN set -x \
+  && mkdir -p /usr/share/man/man1 \
   && apt-get update && apt-get install -y --no-install-recommends \
+    default-jre-headless \
     tesseract-ocr \
     tesseract-ocr-ara \
     tesseract-ocr-cat \
@@ -23,7 +29,7 @@ RUN set -x \
 
 FROM os AS build
 RUN set -x \
-  && apt-get update && apt-get install -y --no-install-recommends wget \
+  && apt-get update && apt-get install -y --no-install-recommends wget unzip \
   && wget -P ~ https://github.com/sbt/sbt/releases/download/v1.1.2/sbt-1.1.2.zip \
   && (cd ~ && unzip sbt-1.1.2.zip) \
   && rm -f ~/sbt-1.1.2.zip
