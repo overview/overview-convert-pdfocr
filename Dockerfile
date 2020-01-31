@@ -48,7 +48,7 @@ COPY --from=framework /app/run /app/run
 COPY --from=framework /app/convert-single-file /app/convert
 COPY --from=build /app/java/target/scala-2.12/convert-pdfocr.jar /app/
 COPY ./do-convert-single-file /app/do-convert-single-file
-CMD [ "/bin/tini", "/app/run" ]
+CMD [ "/usr/bin/tini", "/app/run" ]
 
 
 FROM base AS test
