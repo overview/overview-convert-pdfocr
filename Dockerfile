@@ -10,6 +10,7 @@ RUN set -x \
     tesseract-ocr \
     tesseract-ocr-ara \
     tesseract-ocr-cat \
+    tesseract-ocr-ces \
     tesseract-ocr-deu \
     tesseract-ocr-eng \
     tesseract-ocr-fra \
